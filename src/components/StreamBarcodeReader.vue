@@ -55,10 +55,11 @@ export default {
 <style scoped>
 video {
   max-width: 100%;
-  max-height: 80%;
+  max-height: 50%;
 }
 .scanner-container {
   position: relative;
+  max-height: 70%;
 }
 .overlay-element {
   position: absolute;
