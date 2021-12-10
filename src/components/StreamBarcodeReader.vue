@@ -64,7 +64,7 @@ video {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 99%;
+  height: 80%;
   background: rgba(30, 30, 30, 0.5);
   -webkit-clip-path: polygon(
     0% 0%,
