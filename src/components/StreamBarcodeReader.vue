@@ -4,6 +4,7 @@
       <video poster="data:image/gif,AAAA" ref="scanner"></video>
       <!-- <div class="overlay-element"></div>
       <div class="laser"></div> -->
+      <button @mousedown="start" class="scan">Scan</button>
     </div>
   </div>
 </template>
@@ -27,7 +28,7 @@ export default {
       throw new Exception("Media Stream API is not supported");
       return;
     }
-    this.start();
+    // this.start();
     this.$refs.scanner.oncanplay = event => {
       this.isLoading = false;
       this.$emit("loaded");
