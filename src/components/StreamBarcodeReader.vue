@@ -54,8 +54,8 @@ export default {
 
 <style scoped>
 video {
-  max-width: 100%;
-  max-height: 50%;
+  max-width: 60%;
+  max-height: 60%;
 }
 .scanner-container {
   position: relative;
