@@ -2,8 +2,8 @@
   <div class="scanner-container">
     <div v-show="!isLoading">
       <video poster="data:image/gif,AAAA" ref="scanner"></video>
-      <div class="overlay-element"></div>
-      <div class="laser"></div>
+      <!-- <div class="overlay-element"></div>
+      <div class="laser"></div> -->
     </div>
   </div>
 </template>
@@ -55,7 +55,6 @@ export default {
 <style scoped>
 video {
   max-width: 100%;
-  max-height: 80%;
 }
 .scanner-container {
   position: relative;
