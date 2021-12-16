@@ -54,18 +54,17 @@ export default {
 
 <style scoped>
 video {
-  max-width: 60%;
-  max-height: 60%;
+  max-width: 100%;
+  max-height: 80%;
 }
 .scanner-container {
   position: relative;
-  max-height: 70%;
 }
 .overlay-element {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 80%;
+  height: 100%;
   background: rgba(30, 30, 30, 0.5);
   -webkit-clip-path: polygon(
     0% 0%,
