@@ -1,12 +1,7 @@
 <template>
-  <div class="scanner-container">
-    <div v-show="!isLoading">
+    <div class="scanner" v-show="!isLoading">
       <video poster="data:image/gif,AAAA" ref="scanner"></video>
-      <!-- <div class="overlay-element"></div>
-      <div class="laser"></div> -->
-      <button @mousedown="start" class="scan">Scan</button>
     </div>
-  </div>
 </template>
 
 <script>
@@ -15,7 +10,7 @@ export default {
   name: "stream-barcode-reader",
   data() {
     return {
-      isLoading: true,
+      isLoading: false,
       codeReader: new BrowserMultiFormatReader(),
       isMediaStreamAPISupported:
         navigator &&
@@ -28,9 +23,12 @@ export default {
       throw new Exception("Media Stream API is not supported");
       return;
     }
-    // this.start();
+    this.start();
+    this.codeReader.decodeFromVideoDevice(
+        undefined,
+        this.$refs.scanner)
+    this.isLoading = false;
     this.$refs.scanner.oncanplay = event => {
-      this.isLoading = false;
       this.$emit("loaded");
     };
   },
@@ -55,16 +53,16 @@ export default {
 
 <style scoped>
 video {
-  max-width: 100%;
-}
-.scanner-container {
-  position: relative;
+  position: absolute;
+  bottom: 0%;
+  z-index: -1;
 }
 .overlay-element {
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
   background: rgba(30, 30, 30, 0.5);
   -webkit-clip-path: polygon(
     0% 0%,
@@ -101,7 +99,7 @@ video {
   z-index: 2;
   box-shadow: 0 0 4px red;
   -webkit-animation: scanning 2s infinite;
-  animation: scanning 2s infinite;
+  animation: scanning 2s infinite; 
 }
 @-webkit-keyframes scanning {
   50% {
@@ -115,4 +113,6 @@ video {
     transform: translateY(75px);
   }
 }
+
+
 </style>
